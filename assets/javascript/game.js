@@ -83,6 +83,7 @@ $(document).ready(function () {
             $(".enemies").append(enemyChar3);
             $(".enemies").append(enemyChar4);
             $(".enemies").append(enemyChar5);
+            $(".yourHP").text("Your HP: " + userHP);
         })
 
         $(userChar3).click(function () {
@@ -96,6 +97,7 @@ $(document).ready(function () {
             $(".enemies").append(enemyChar3);
             $(".enemies").append(enemyChar4);
             $(".enemies").append(enemyChar5);
+            $(".yourHP").text("Your HP: " + userHP);
         })
 
         $(userChar4).click(function () {
@@ -109,6 +111,7 @@ $(document).ready(function () {
             $(".enemies").append(enemyChar3);
             $(".enemies").append(enemyChar4);
             $(".enemies").append(enemyChar5);
+            $(".yourHP").text("Your HP: " + userHP);
         })
 
         $(userChar5).click(function () {
@@ -122,6 +125,7 @@ $(document).ready(function () {
             $(".enemies").append(enemyChar3);
             $(".enemies").append(enemyChar4);
             $(".enemies").append(enemyChar5);
+            $(".yourHP").text("Your HP: " + userHP);
         })
 
     }
