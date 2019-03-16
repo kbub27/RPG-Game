@@ -44,5 +44,5 @@ $(document).ready(function () {
     $(enemyChar4).attr("src", "assets/images/leagueimg9.jpg");
     $(enemyChar5).attr("src", "assets/images/leagueimg10.jpg");
 
-
+    console.log(userHP);
 })
