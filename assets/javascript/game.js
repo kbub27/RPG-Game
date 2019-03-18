@@ -3,11 +3,10 @@ $(document).ready(function () {
 //set wins, losses, HP, attack damage, and counter attack power(defensive power)
     var userHP = Math.floor(Math.random() * 500);
     var opponentHP = Math.floor(Math.random() * 500);
-    var attackPower = Math.floor(Math.random() * 300);
-    var defensivePower = Math.floor(Math.random() * 100);
 
  // set images in htmls for each character
-    var startButton = $("<button>")
+    var atkButton = $("<button>");
+    var startButton = $("<button>");
     var userChar1 = $("<img>");
     var userChar2 = $("<img>");
     var userChar3 = $("<img>");
@@ -19,6 +18,7 @@ $(document).ready(function () {
     var enemyChar4 = $("<img>");
     var enemyChar5 = $("<img>");
 // set classes for enemy and user character
+    $(atkButton).addClass("btn btn-danger");
     $(startButton).addClass("btn btn-warning");
     $(enemyChar1).addClass("enemy1");
     $(enemyChar2).addClass("enemy2");
@@ -32,6 +32,7 @@ $(document).ready(function () {
     $(userChar5).addClass("user5");
 
 // set attributes for said characters
+    $(atkButton).attr("type", "button");
     $(startButton).attr("type", "button");
     $(userChar1).attr("src", "assets/images/leagueimg1.jpg");
     $(userChar2).attr("src", "assets/images/leagueimg2.jpg");
@@ -44,6 +45,7 @@ $(document).ready(function () {
     $(enemyChar4).attr("src", "assets/images/leagueimg9.jpg");
     $(enemyChar5).attr("src", "assets/images/leagueimg10.jpg");
     $(startButton).text("Start Game");
+    $(atkButton).text("ATTACK!");
 
     function startGame() {
         $(".yourCharacters").prepend(startButton);
@@ -59,6 +61,8 @@ $(document).ready(function () {
         })
 
         $(userChar1).click(function () {
+            let userAttackPower = Math.floor(Math.random() * 300);
+            let defensivePower = Math.floor(Math.random() * 100);
             $(".chooseEnemy").text("Choose Opponent!")
             $(userChar2).remove();
             $(userChar3).remove();
@@ -70,9 +74,12 @@ $(document).ready(function () {
             $(".enemies").append(enemyChar4);
             $(".enemies").append(enemyChar5);
             $(".yourHP").text("Your HP: " + userHP);
+            console.log(userAttackPower);
         })
 
         $(userChar2).click(function () {
+            let userAttackPower = Math.floor(Math.random() * 300);
+            let defensivePower = Math.floor(Math.random() * 100);
             $(".chooseEnemy").text("Choose Opponent!")
             $(userChar1).remove();
             $(userChar3).remove();
@@ -87,6 +94,8 @@ $(document).ready(function () {
         })
 
         $(userChar3).click(function () {
+            let userAttackPower = Math.floor(Math.random() * 300);
+            let defensivePower = Math.floor(Math.random() * 100);
             $(".chooseEnemy").text("Choose Opponent!")
             $(userChar2).remove();
             $(userChar1).remove();
@@ -101,6 +110,8 @@ $(document).ready(function () {
         })
 
         $(userChar4).click(function () {
+            let userAttackPower = Math.floor(Math.random() * 300);
+            let defensivePower = Math.floor(Math.random() * 100);
             $(".chooseEnemy").text("Choose Opponent!")
             $(userChar2).remove();
             $(userChar3).remove();
@@ -115,6 +126,8 @@ $(document).ready(function () {
         })
 
         $(userChar5).click(function () {
+            let userAttackPower = Math.floor(Math.random() * 300);
+            let defensivePower = Math.floor(Math.random() * 100);
             $(".chooseEnemy").text("Choose Opponent!")
             $(userChar2).remove();
             $(userChar3).remove();
@@ -126,6 +139,73 @@ $(document).ready(function () {
             $(".enemies").append(enemyChar4);
             $(".enemies").append(enemyChar5);
             $(".yourHP").text("Your HP: " + userHP);
+        })
+
+        $(enemyChar1).click(function () {
+            let enemyAttackPower = Math.floor(Math.random() * 300);
+            let enemyDefensePower6 = Math.floor(Math.random() * 100);
+            $(enemyChar2).remove();
+            $(enemyChar3).remove();
+            $(enemyChar4).remove();
+            $(enemyChar5).remove();
+            $(".attack").text("NOW FIGHT!");
+            $(".fight").append(atkButton);
+            $(".enemyHP").text("Enemy HP: " + opponentHP);
+            console.log(enemyAttackPower);
+        })
+
+        $(enemyChar2).click(function () {
+            let enemyAttackPower = Math.floor(Math.random() * 300);
+            let defensivePower = Math.floor(Math.random() * 100);
+            $(enemyChar1).remove();
+            $(enemyChar3).remove();
+            $(enemyChar4).remove();
+            $(enemyChar5).remove();
+            $(".attack").text("NOW FIGHT!");
+            $(".fight").append(atkButton);
+            $(".enemyHP").text("Enemy HP: " + opponentHP);
+        })
+
+        $(enemyChar3).click(function () {
+            let enemyAttackPower = Math.floor(Math.random() * 300);
+            let defensivePower = Math.floor(Math.random() * 100);
+            $(enemyChar2).remove();
+            $(enemyChar1).remove();
+            $(enemyChar4).remove();
+            $(enemyChar5).remove();
+            $(".attack").text("NOW FIGHT!");
+            $(".fight").append(atkButton);
+            $(".enemyHP").text("Enemy HP: " + opponentHP);
+        })
+
+        $(enemyChar4).click(function () {
+            let enemyAttackPower = Math.floor(Math.random() * 300);
+            let defensivePower = Math.floor(Math.random() * 100);
+            $(enemyChar2).remove();
+            $(enemyChar3).remove();
+            $(enemyChar1).remove();
+            $(enemyChar5).remove();
+            $(".attack").text("NOW FIGHT!");
+            $(".fight").append(atkButton);
+            $(".enemyHP").text("Enemy HP: " + opponentHP);
+        })
+
+        $(enemyChar5).click(function () {
+            let enemyAttackPower = Math.floor(Math.random() * 300);
+            let defensivePower = Math.floor(Math.random() * 100);
+            $(enemyChar2).remove();
+            $(enemyChar3).remove();
+            $(enemyChar4).remove();
+            $(enemyChar1).remove();
+            $(".attack").text("NOW FIGHT!");
+            $(".fight").append(atkButton);
+            $(".enemyHP").text("Enemy HP: " + opponentHP);
+        })
+
+        $(atkButton).click(function () {
+            if (userAttackPower > enemyDefensePower) {
+                
+            }
         })
 
     }
