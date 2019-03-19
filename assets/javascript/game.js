@@ -3,6 +3,10 @@ $(document).ready(function () {
 //set wins, losses, HP, attack damage, and counter attack power(defensive power)
     var userHP = Math.floor(Math.random() * 500);
     var opponentHP = Math.floor(Math.random() * 500);
+    var userAttackPower = Math.floor(Math.random() * 101);
+    var enemyAttackPower = Math.floor(Math.random() * 101);
+    var wins = 0;
+    //var enemyDefensePower = Math.floor(Math.random() * 100);
 
  // set images in htmls for each character
     var atkButton = $("<button>");
@@ -61,8 +65,6 @@ $(document).ready(function () {
         })
 
         $(userChar1).click(function () {
-            let userAttackPower = Math.floor(Math.random() * 300);
-            let defensivePower = Math.floor(Math.random() * 100);
             $(".chooseEnemy").text("Choose Opponent!")
             $(userChar2).remove();
             $(userChar3).remove();
@@ -74,12 +76,9 @@ $(document).ready(function () {
             $(".enemies").append(enemyChar4);
             $(".enemies").append(enemyChar5);
             $(".yourHP").text("Your HP: " + userHP);
-            console.log(userAttackPower);
         })
 
         $(userChar2).click(function () {
-            let userAttackPower = Math.floor(Math.random() * 300);
-            let defensivePower = Math.floor(Math.random() * 100);
             $(".chooseEnemy").text("Choose Opponent!")
             $(userChar1).remove();
             $(userChar3).remove();
@@ -94,8 +93,6 @@ $(document).ready(function () {
         })
 
         $(userChar3).click(function () {
-            let userAttackPower = Math.floor(Math.random() * 300);
-            let defensivePower = Math.floor(Math.random() * 100);
             $(".chooseEnemy").text("Choose Opponent!")
             $(userChar2).remove();
             $(userChar1).remove();
@@ -110,8 +107,6 @@ $(document).ready(function () {
         })
 
         $(userChar4).click(function () {
-            let userAttackPower = Math.floor(Math.random() * 300);
-            let defensivePower = Math.floor(Math.random() * 100);
             $(".chooseEnemy").text("Choose Opponent!")
             $(userChar2).remove();
             $(userChar3).remove();
@@ -126,8 +121,6 @@ $(document).ready(function () {
         })
 
         $(userChar5).click(function () {
-            let userAttackPower = Math.floor(Math.random() * 300);
-            let defensivePower = Math.floor(Math.random() * 100);
             $(".chooseEnemy").text("Choose Opponent!")
             $(userChar2).remove();
             $(userChar3).remove();
@@ -142,8 +135,6 @@ $(document).ready(function () {
         })
 
         $(enemyChar1).click(function () {
-            let enemyAttackPower = Math.floor(Math.random() * 300);
-            let enemyDefensePower6 = Math.floor(Math.random() * 100);
             $(enemyChar2).remove();
             $(enemyChar3).remove();
             $(enemyChar4).remove();
@@ -151,12 +142,9 @@ $(document).ready(function () {
             $(".attack").text("NOW FIGHT!");
             $(".fight").append(atkButton);
             $(".enemyHP").text("Enemy HP: " + opponentHP);
-            console.log(enemyAttackPower);
         })
 
         $(enemyChar2).click(function () {
-            let enemyAttackPower = Math.floor(Math.random() * 300);
-            let defensivePower = Math.floor(Math.random() * 100);
             $(enemyChar1).remove();
             $(enemyChar3).remove();
             $(enemyChar4).remove();
@@ -167,8 +155,6 @@ $(document).ready(function () {
         })
 
         $(enemyChar3).click(function () {
-            let enemyAttackPower = Math.floor(Math.random() * 300);
-            let defensivePower = Math.floor(Math.random() * 100);
             $(enemyChar2).remove();
             $(enemyChar1).remove();
             $(enemyChar4).remove();
@@ -179,8 +165,6 @@ $(document).ready(function () {
         })
 
         $(enemyChar4).click(function () {
-            let enemyAttackPower = Math.floor(Math.random() * 300);
-            let defensivePower = Math.floor(Math.random() * 100);
             $(enemyChar2).remove();
             $(enemyChar3).remove();
             $(enemyChar1).remove();
@@ -191,8 +175,6 @@ $(document).ready(function () {
         })
 
         $(enemyChar5).click(function () {
-            let enemyAttackPower = Math.floor(Math.random() * 300);
-            let defensivePower = Math.floor(Math.random() * 100);
             $(enemyChar2).remove();
             $(enemyChar3).remove();
             $(enemyChar4).remove();
@@ -203,10 +185,49 @@ $(document).ready(function () {
         })
 
         $(atkButton).click(function () {
-            if (userAttackPower > enemyDefensePower) {
-                
+            opponentHP -= userAttackPower;
+            userHP -= enemyAttackPower;
+            console.log(userHP);
+            console.log(opponentHP);
+            $(".enemyHP").text("Enemy HP: " + opponentHP);
+            $(".yourHP").text("Your HP: " + userHP);
+
+            if (userHP < 0) {
+                alert("You have lost the Game!")
+                resetGame();
+            } else if (opponentHP <= 0) {
+                //chooseNewOpponent();
+                wins++;
+                console.log(wins);
+            } else if (wins === 5) {
+                alert("You have won!");
+                //resetGame();
             }
         })
+
+     var resetGame = () => {
+        $(userChar1).remove();
+        $(userChar2).remove();
+        $(userChar3).remove();
+        $(userChar4).remove();
+        $(userChar5).remove();
+        $(enemyChar1).remove();
+        $(enemyChar2).remove();
+        $(enemyChar3).remove();
+        $(enemyChar4).remove();
+        $(enemyChar5).remove();
+        $(".enemyHP").text("");
+        $(".yourHP").text("");
+        $(".chooseCharacter").text("");
+        $(".chooseEnemy").text("");
+        $(".attack").text("");           
+        $(atkButton).remove();
+        userHP = Math.floor(Math.random() * 500);
+        opponentHP = Math.floor(Math.random() * 500);
+        userAttackPower = Math.floor(Math.random() * 101);
+        enemyAttackPower = Math.floor(Math.random() * 101);
+        startGame();
+    }
 
     }
 
