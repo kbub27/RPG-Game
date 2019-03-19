@@ -196,7 +196,7 @@ $(document).ready(function () {
                 alert("You have lost the Game!")
                 resetGame();
             } else if (opponentHP <= 0) {
-                //chooseNewOpponent();
+                chooseNewOpponent();
                 wins++;
                 console.log(wins);
             } else if (wins === 5) {
@@ -204,6 +204,8 @@ $(document).ready(function () {
                 //resetGame();
             }
         })
+
+    }
 
      var resetGame = () => {
         $(userChar1).remove();
@@ -229,6 +231,12 @@ $(document).ready(function () {
         startGame();
     }
 
+    var chooseNewOpponent = () => {
+        $(enemyChar1).remove();
+        $(enemyChar2).remove();
+        $(enemyChar3).remove();
+        $(enemyChar4).remove();
+        $(enemyChar5).remove();
     }
 
     startGame();
