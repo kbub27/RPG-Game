@@ -1,10 +1,10 @@
 $(document).ready(function () {
 
 //set wins, losses, HP, attack damage, and counter attack power(defensive power)
-    var userHP = Math.floor(Math.random() * 500);
-    var opponentHP = Math.floor(Math.random() * 350);
-    var userAttackPower = Math.floor(Math.random() * 101);
-    var enemyAttackPower = Math.floor(Math.random() * 101);
+    var userHP = Math.floor(Math.random() * 500 + 100);
+    var opponentHP = Math.floor(Math.random() * 350 + 100);
+    var userAttackPower = Math.floor(Math.random() * 200 + 50);
+    var enemyAttackPower = Math.floor(Math.random() * 100 + 25);
     var wins = 0;
     var enemyClicked1,
         enemyClicked2,
@@ -76,7 +76,7 @@ $(document).ready(function () {
             $(".enemyHP").text("Enemy HP: " + opponentHP);
             $(".yourHP").text("Your HP: " + userHP);
 
-            if (userHP < 0) {
+            if (userHP <= 0) {
                 alert("You have lost the Game!")
                 resetGame();
             } else if (opponentHP <= 0) {
@@ -246,16 +246,17 @@ $(document).ready(function () {
             $(enemyChar4).remove();
             $(enemyChar5).remove();
             $('.enemyHP').text('');
-            opponentHP = Math.floor(Math.random() * 250);
-            enemyAttackPower = Math.floor(Math.random() * 101);
-            userAttackPower += Math.floor(Math.random() * 50);
+            
 
             if (enemyClicked1) {
+                opponentHP = Math.floor(Math.random() * 250);
+                enemyAttackPower = Math.floor(Math.random() * 101);
+                userAttackPower += Math.floor(Math.random() * 50);
                 $(".enemies").append(enemyChar2);
-                $(".enemies").append(enemyChar3);
-                $(".enemies").append(enemyChar4);
-                $(".enemies").append(enemyChar5);
-                enemyClicked1 = "already chosen";
+                // $(".enemies").append(enemyChar3);
+                // $(".enemies").append(enemyChar4);
+                // $(".enemies").append(enemyChar5);
+                var enemyClicked1 = "already chosen";
 
                 $(enemyChar2).click(function () {
                     enemyClicked2 = true;
@@ -301,11 +302,14 @@ $(document).ready(function () {
                     $(".enemyHP").text("Enemy HP: " + opponentHP);
                 })
             } else if (enemyClicked2) {
-                $(".enemies").append(enemyChar1);
+                opponentHP = Math.floor(Math.random() * 250);
+                enemyAttackPower = Math.floor(Math.random() * 101);
+                userAttackPower += Math.floor(Math.random() * 50);
+                //$(".enemies").append(enemyChar1);
                 $(".enemies").append(enemyChar3);
-                $(".enemies").append(enemyChar4);
-                $(".enemies").append(enemyChar5);
-                enemyClicked2 = "already chosen";
+                //$(".enemies").append(enemyChar4);
+                //$(".enemies").append(enemyChar5);
+                var enemyClicked2 = "already chosen";
 
                 $(enemyChar1).click(function () {
                     enemyClicked1 === true;
@@ -351,11 +355,14 @@ $(document).ready(function () {
                     $(".enemyHP").text("Enemy HP: " + opponentHP);
                 })
             } else if (enemyClicked3) {
-                $(".enemies").append(enemyChar1);
-                $(".enemies").append(enemyChar2);
+                opponentHP = Math.floor(Math.random() * 250);
+                enemyAttackPower = Math.floor(Math.random() * 101);
+                userAttackPower += Math.floor(Math.random() * 50);
+                // $(".enemies").append(enemyChar1);
+                // $(".enemies").append(enemyChar2);
                 $(".enemies").append(enemyChar4);
-                $(".enemies").append(enemyChar5);
-                enemyClicked3 = "already chosen";
+                // $(".enemies").append(enemyChar5);
+                var enemyClicked3 = "already chosen";
 
                 $(enemyChar1).click(function () {
                     enemyClicked1 = true;
@@ -401,11 +408,14 @@ $(document).ready(function () {
                     $(".enemyHP").text("Enemy HP: " + opponentHP);
                 })
             } else if (enemyClicked4) {
-                $(".enemies").append(enemyChar1);
-                $(".enemies").append(enemyChar3);
-                $(".enemies").append(enemyChar2);
+                opponentHP = Math.floor(Math.random() * 250);
+                enemyAttackPower = Math.floor(Math.random() * 101);
+                userAttackPower += Math.floor(Math.random() * 50);
+                // $(".enemies").append(enemyChar1);
+                // $(".enemies").append(enemyChar3);
+                // $(".enemies").append(enemyChar2);
                 $(".enemies").append(enemyChar5);
-                enemyClicked4 = "already chosen";
+                var enemyClicked4 = "already chosen";
 
                 $(enemyChar1).click(function () {
                     enemyClicked1 = true;
@@ -451,11 +461,14 @@ $(document).ready(function () {
                     $(".enemyHP").text("Enemy HP: " + opponentHP);
                 })
             } else if (enemyClicked5) {
+                opponentHP = Math.floor(Math.random() * 250);
+                enemyAttackPower = Math.floor(Math.random() * 101);
+                userAttackPower += Math.floor(Math.random() * 50);
                 $(".enemies").append(enemyChar1);
-                $(".enemies").append(enemyChar3);
-                $(".enemies").append(enemyChar4);
-                $(".enemies").append(enemyChar2);
-                enemyClicked5 = "already chosen";
+                // $(".enemies").append(enemyChar3);
+                // $(".enemies").append(enemyChar4);
+                // $(".enemies").append(enemyChar2);
+                var enemyClicked5 = "already chosen";
 
                 $(enemyChar1).click(function () {
                     enemyClicked1 = true;
@@ -505,6 +518,6 @@ $(document).ready(function () {
     }
 
     startGame();
-    resetGame();
     
+
 })
