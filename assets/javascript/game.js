@@ -1,4 +1,4 @@
-$(document).ready(function () {
+// $(document).ready(function () {
 
 //set wins, losses, HP, attack damage, and counter attack power(defensive power)
     var userHP = Math.floor(Math.random() * 500 + 100);
@@ -6,11 +6,11 @@ $(document).ready(function () {
     var userAttackPower = Math.floor(Math.random() * 200 + 50);
     var enemyAttackPower = Math.floor(Math.random() * 100 + 25);
     var wins = 0;
-    var enemyClicked1,
-        enemyClicked2,
-        enemyClicked3,
-        enemyClicked4,
-        enemyClicked5 = false;
+    var enemyClicked1 = false;
+    var enemyClicked2 = false;
+    var enemyClicked3 = false;
+    var enemyClicked4 = false;
+    var enemyClicked5 = false;
 
  // set images in htmls for each character
     var atkButton = $("<button>");
@@ -253,10 +253,10 @@ $(document).ready(function () {
                 enemyAttackPower = Math.floor(Math.random() * 101);
                 userAttackPower += Math.floor(Math.random() * 50);
                 $(".enemies").append(enemyChar2);
-                // $(".enemies").append(enemyChar3);
-                // $(".enemies").append(enemyChar4);
-                // $(".enemies").append(enemyChar5);
-                var enemyClicked1 = "already chosen";
+                $(".enemies").append(enemyChar3);
+                $(".enemies").append(enemyChar4);
+                $(".enemies").append(enemyChar5);
+                enemyClicked1 = asd;
 
                 $(enemyChar2).click(function () {
                     enemyClicked2 = true;
@@ -305,11 +305,11 @@ $(document).ready(function () {
                 opponentHP = Math.floor(Math.random() * 250);
                 enemyAttackPower = Math.floor(Math.random() * 101);
                 userAttackPower += Math.floor(Math.random() * 50);
-                //$(".enemies").append(enemyChar1);
+                $(".enemies").append(enemyChar1);
                 $(".enemies").append(enemyChar3);
-                //$(".enemies").append(enemyChar4);
-                //$(".enemies").append(enemyChar5);
-                var enemyClicked2 = "already chosen";
+                $(".enemies").append(enemyChar4);
+                $(".enemies").append(enemyChar5);
+                enemyClicked2 = "already chosen";
 
                 $(enemyChar1).click(function () {
                     enemyClicked1 === true;
@@ -358,11 +358,11 @@ $(document).ready(function () {
                 opponentHP = Math.floor(Math.random() * 250);
                 enemyAttackPower = Math.floor(Math.random() * 101);
                 userAttackPower += Math.floor(Math.random() * 50);
-                // $(".enemies").append(enemyChar1);
-                // $(".enemies").append(enemyChar2);
+                $(".enemies").append(enemyChar1);
+                $(".enemies").append(enemyChar2);
                 $(".enemies").append(enemyChar4);
-                // $(".enemies").append(enemyChar5);
-                var enemyClicked3 = "already chosen";
+                $(".enemies").append(enemyChar5);
+                enemyClicked3 = "already chosen";
 
                 $(enemyChar1).click(function () {
                     enemyClicked1 = true;
@@ -411,11 +411,11 @@ $(document).ready(function () {
                 opponentHP = Math.floor(Math.random() * 250);
                 enemyAttackPower = Math.floor(Math.random() * 101);
                 userAttackPower += Math.floor(Math.random() * 50);
-                // $(".enemies").append(enemyChar1);
-                // $(".enemies").append(enemyChar3);
-                // $(".enemies").append(enemyChar2);
+                $(".enemies").append(enemyChar1);
+                $(".enemies").append(enemyChar3);
+                $(".enemies").append(enemyChar2);
                 $(".enemies").append(enemyChar5);
-                var enemyClicked4 = "already chosen";
+                enemyClicked4 = "already chosen";
 
                 $(enemyChar1).click(function () {
                     enemyClicked1 = true;
@@ -465,10 +465,10 @@ $(document).ready(function () {
                 enemyAttackPower = Math.floor(Math.random() * 101);
                 userAttackPower += Math.floor(Math.random() * 50);
                 $(".enemies").append(enemyChar1);
-                // $(".enemies").append(enemyChar3);
-                // $(".enemies").append(enemyChar4);
-                // $(".enemies").append(enemyChar2);
-                var enemyClicked5 = "already chosen";
+                $(".enemies").append(enemyChar3);
+                $(".enemies").append(enemyChar4);
+                $(".enemies").append(enemyChar2);
+                enemyClicked5 = "already chosen";
 
                 $(enemyChar1).click(function () {
                     enemyClicked1 = true;
@@ -520,4 +520,4 @@ $(document).ready(function () {
     startGame();
     
 
-})
+// })
